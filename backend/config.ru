@@ -16,3 +16,5 @@ run ApplicationController
 # Using our other controllers
 use RecipesController
 use UsersController
+use CommentsController
+use KissesController

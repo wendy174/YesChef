@@ -24,4 +24,23 @@ class RecipesController < ApplicationController
         recipe.to_json(include: :kisses)
     end
 
+    # CREATE: post for creating new recipe
+    post "/recipes" do
+        recipe = Recipe.create(params)
+        recipe.to_json
+    end
+
+    # UPDATE: patch for updating recipe
+    patch "/recipes/:id" do
+        recipe = Recipe.find(params[:id])
+        recipe.update(params)
+        recipe.to_json(include: [:kisses, :comments])
+    end
+
+    # # DELETE recipe by id
+    delete "/recipes/:id" do
+        recipe = Recipe.find(params[:id])
+        recipe.destroy
+        recipe.to_json
+    end
 end

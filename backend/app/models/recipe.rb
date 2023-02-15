@@ -3,10 +3,12 @@ class Recipe < ActiveRecord::Base
     has_many :comments
     has_many :kisses
 
+    # counts kisses/yeses for each recipe
     def kiss_count
         self.kisses.count
     end
 
+    # calculates the top 5 kissed recipes
     def self.top_five_kiss_count
         kisses = self.all.sort_by do |recipe|
             recipe.kiss_count
@@ -14,6 +16,7 @@ class Recipe < ActiveRecord::Base
         kisses.reverse.first(5)
     end
 
+    # calculates the most kissed recipe
     def self.most_kissed
         self.all.max_by do |recipe|
             recipe.kisses.count

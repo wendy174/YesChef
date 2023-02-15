@@ -1,6 +1,7 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
 
+  # gets 5 recipes with the highest kisses/yes chefs
   get "/" do
     top_five = Recipe.top_five_kiss_count
     top_five.to_json(only: [:title, :image_URL, :cuisine, :time, :difficulty])

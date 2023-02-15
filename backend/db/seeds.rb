@@ -353,8 +353,13 @@ puts "Creating kisses"
 100.times do
     Kiss.create(user_id: User.all.sample.id, recipe_id: Recipe.all.sample.id)
 end
-
 puts "Done creating kisses"
 
+# messes
+puts "Creating messes"
+100.times do
+    Mess.create(user_id: User.all.sample.id, recipe_id: Recipe.all.sample.id)
+end
+puts "Done creating messes"
 
 puts "✅ Done seeding!"

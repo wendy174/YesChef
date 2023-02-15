@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
     # finding recipe by id to UPDATE and DELETE
     get "/recipes/:id" do
         recipe = Recipe.find(params[:id])
-        recipe.to_json(include: [:kisses, :comments])
+        recipe.to_json(include: [:kisses, :comments, :messes])
     end
 
     # finding recipe by id and including comments to CREATE and READ
@@ -24,6 +24,12 @@ class RecipesController < ApplicationController
         recipe.to_json(include: :kisses)
     end
 
+    # finding recipe by id and including messes to CREATE and READ and DELETE
+    get "/recipes/:id/messes" do
+        recipe = Recipe.find(params[:id])
+        recipe.to_json(include: :messes)
+    end
+
     # CREATE: post for creating new recipe
     post "/recipes" do
         recipe = Recipe.create(params)
@@ -34,7 +40,7 @@ class RecipesController < ApplicationController
     patch "/recipes/:id" do
         recipe = Recipe.find(params[:id])
         recipe.update(params)
-        recipe.to_json(include: [:kisses, :comments])
+        recipe.to_json(include: [:kisses, :comments, :messes])
     end
 
     # # DELETE recipe by id

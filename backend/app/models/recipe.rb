@@ -2,6 +2,7 @@ class Recipe < ActiveRecord::Base
     belongs_to :user
     has_many :comments
     has_many :kisses
+    has_many :messes
 
     # counts kisses/yeses for each recipe
     def kiss_count

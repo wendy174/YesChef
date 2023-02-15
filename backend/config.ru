@@ -18,3 +18,4 @@ use RecipesController
 use UsersController
 use CommentsController
 use KissesController
+use MessesController

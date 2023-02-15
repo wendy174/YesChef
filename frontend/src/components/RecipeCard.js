@@ -9,7 +9,7 @@ return (
     <Card>
         <div className="recipe-card">
             <div className="image">
-                <img src= {image_URL} alt={title}/>
+                <img style={{width: '230px', height: '250px'}}src= {image_URL} alt={title}/>
             </div>
             <div className="recipe-title">
                 <h2 className="header">{title}</h2>
@@ -20,6 +20,7 @@ return (
                 <h3>{difficulty}</h3>
             </div>
             <button className = "kissButton">Yes</button>
+            <i className="thumbs up"/>
             <button className = "messButton">Mess</button>
         </div>
     </Card>

@@ -23,4 +23,28 @@ class Recipe < ActiveRecord::Base
             recipe.kisses.count
         end
     end
+
+    # creates array of all cuisine types
+    def self.cuisine_types
+        cuisine_types = self.all.map do |recipe|
+            recipe.cuisine
+        end
+        cuisine_types.uniq.sort
+    end
+
+    # creates array of all difficulty levels
+    def self.difficulty_levels
+        difficulty_levels = self.all.map do |recipe|
+            recipe.difficulty
+        end
+        difficulty_levels.uniq
+    end
+
+    # creates array of all cooking times
+    def self.cooking_times
+        cooking_times = self.all.map do |recipe|
+            recipe.time
+        end
+        cooking_times.uniq.sort
+    end
 end

@@ -1,15 +1,20 @@
 import React from 'react';
 import { NavLink, useNavigate } from "react-router-dom";
 
-// Allow for use of useNavigate if we need it
-// const navigate = useNavigate();
 
-function NavBar () {
+function NavBar ({setLoggedIn, currentUser}) {
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        setLoggedIn(false);
+        navigate("/")
+    }
+
     return (
         <nav className="navBar">
             <NavLink
                 className="navLink"
-                to="/"
+                to="/home"
                 >Home
             </NavLink>
             <NavLink
@@ -27,6 +32,12 @@ function NavBar () {
                 to="/mykisses"
                 >Chef's Kisses
             </NavLink>
+            <NavLink
+                className="navLink"
+                to="/profile"
+                >My Kitchen
+            </NavLink>
+            <button onClick={handleLogout}>Logout</button>
         </nav>
     )
 }

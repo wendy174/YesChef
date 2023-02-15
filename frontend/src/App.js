@@ -8,6 +8,7 @@ import NewRecipe from './components/NewRecipe';
 import logo from "./components/logo.png";
 
 function App() {
+  
   return (
     <div className="App">
       <img className="logo" alt="Yes, Chef!" src={logo} />

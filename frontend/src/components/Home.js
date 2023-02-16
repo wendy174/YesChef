@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import NavBar from './NavBar';
+import Header from './Header';
 import HomeCollection from './HomeCollection';
 import { Container } from "semantic-ui-react"
 
@@ -15,8 +16,9 @@ function Home ({setLoggedIn}) {
 
     return (
         <Container>
+            <Header/>
             <NavBar setLoggedIn={setLoggedIn}/>
-            <h1>Yes, Chef!</h1>
+            <h1>Today's Top Recipes</h1>
             <HomeCollection homeRecipes={homeRecipes} />
         </Container>
     )

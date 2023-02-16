@@ -17,6 +17,7 @@ function Recipes () {
         .then(res => res.json())
         .then(setAllRecipes);
     }, []);
+    console.log(allRecipes)
 
     // filter items with search
     const recipeToDisplay = allRecipes.filter((recipe) => recipe.title.toLowerCase().includes(searchItem.toLowerCase()))

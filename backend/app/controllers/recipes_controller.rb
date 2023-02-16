@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
     # READ all recipes
     get "/recipes" do
         recipes = Recipe.all
-        recipes.to_json
+        recipes.to_json(include: [:kisses, :comments, :messes])
     end
 
     # finding recipe by id to UPDATE and DELETE

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import NavBar from './NavBar';
 import RecipeCard from "./RecipeCard";
 import { Card , Container } from "semantic-ui-react";
 import Header from './Header';
@@ -23,7 +22,7 @@ function Kisses ({currentUser}) {
         <Container>
             <Header/>
             <h1>{currentUser.first_name}'s Chef's Kisses</h1>
-            <Card.Group itemsPerRow={5}>{myKisses}</Card.Group>
+            {/* <Card.Group itemsPerRow={5}>{myKisses}</Card.Group> */}
         </Container>
         </>
     )

@@ -1,5 +1,4 @@
 import React from 'react';
-import NavBar from './NavBar';
 import RecipeCard from "./RecipeCard";
 import { Card , Container } from "semantic-ui-react";
 import Header from "./Header";

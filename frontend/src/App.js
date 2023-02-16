@@ -76,7 +76,7 @@ function App() {
       <Routes>
         <Route
           path="/recipes"
-          element={<Recipes setCurrentUser={setCurrentUser} allRecipes={allRecipes}/>}
+          element={<Recipes currentUser={currentUser} allRecipes={allRecipes}/>}
         />
         <Route
           path="/newrecipe"
@@ -88,7 +88,7 @@ function App() {
         />
         <Route
           path="/home"
-          element={<Home setCurrentUser={setCurrentUser} setLoggedIn={setLoggedIn}/>}
+          element={<Home currentUser={currentUser} setLoggedIn={setLoggedIn}/>}
         />
         <Route
           path="/profile"

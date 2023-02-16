@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import NavBar from './NavBar';
 import RecipeCollection from './RecipeCollection';
 import Search from './Search';
-import Header from './Header';
+import Header from './Header'
+import { Dropdown } from 'semantic-ui-react'
 
 function Recipes ({allRecipes}) {
 
@@ -57,13 +58,13 @@ function Recipes ({allRecipes}) {
         <>
             <Header/>
             <h1>Recipes</h1>
-            <Search
+            <Search position="left"
                 searchItem={searchItem}
                 onChangeSearch={setSearchItem}/>
             <div class ="filters">
                 <h3>Filter by Cuisine</h3>
                 <select onChange={selectedCuis}>
-                    <option value="All">Wide palate</option>
+                    <option value="All">Wide Palate</option>
                     <option value="American">American</option>
                     <option value="Chinese">Chinese</option>
                     <option value="Dessert">Dessert</option>
@@ -79,10 +80,10 @@ function Recipes ({allRecipes}) {
             <div class ="filters">
                 <h3>Filter by Difficulty</h3>
                 <select onChange={selectedDiff}>
-                    <option value="All">Not afraid</option>
-                    <option value="easy">easy</option>
-                    <option value="moderate">moderate</option>
-                    <option value="hard">hard</option>
+                    <option value="All">Not Afraid</option>
+                    <option value="easy">Easy</option>
+                    <option value="moderate">Moderate</option>
+                    <option value="hard">Hard</option>
                 </select>
             </div>
             <div class ="filters">

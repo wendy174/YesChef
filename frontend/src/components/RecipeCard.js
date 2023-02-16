@@ -1,10 +1,11 @@
 import React from 'react';
 // import { NavLink } from "react-router-dom";
-import { Card , Button , Icon , Label , Image } from "semantic-ui-react";
+import { Card , Button , Icon , Label , Image , Container } from "semantic-ui-react";
 
 function RecipeCard ({ recipe }) {
 
 const { title, cuisine, time, image_URL, difficulty } = recipe;
+
 return (
     <Card>
         <Image src= {image_URL} alt={title} wrapped ui={false}/>
@@ -16,7 +17,7 @@ return (
             <span>{difficulty}</span>
         </Card.Meta>
         </Card.Content>
-        <Card.Content extra>
+        <Card.Content>
             <div>
                 <Button  as='div' labelPosition='right'>
                     <Button icon>
@@ -27,6 +28,8 @@ return (
                         123,657
                     </Label>
                 </Button>
+                <br></br>
+                <br></br>
                 <Button as='div' labelPosition='left'>
                     <Label as='a' basic pointing='right'>
                         2,048
@@ -36,6 +39,12 @@ return (
                         Mess
                     </Button>
                 </Button>
+            </div>
+        </Card.Content>
+        <Card.Content extra>
+            <div class="content">
+                <i class="comment icon"></i>
+                3 comments
             </div>
         </Card.Content>
     </Card>

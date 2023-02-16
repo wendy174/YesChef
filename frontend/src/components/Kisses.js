@@ -1,10 +1,11 @@
 import React from 'react';
 import NavBar from './NavBar';
+import Header from './Header';
 
 function Kisses () {
     return (
         <>
-            <NavBar/>
+            <Header/>
             <h1>Kisses</h1>
         </>
     )

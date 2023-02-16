@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import toplogo from './logo.png';
 
 function Login ( { setCurrentUser, login } ) {
     // initial login form data
@@ -22,7 +23,8 @@ function Login ( { setCurrentUser, login } ) {
 
     return (
         <div>
-            <h1>Login</h1>
+            <img className="logo" alt="Yes, Chef!" src={toplogo} />
+            <h1>Welcome Back to Yes, Chef!</h1>
             <form onSubmit={handleSubmit}>
                 <label>Email
                     <input

@@ -1,10 +1,11 @@
 import React from 'react';
 // import { NavLink } from "react-router-dom";
-import { Card , Button , Icon , Label , Image } from "semantic-ui-react";
+import { Card , Button , Icon , Label , Image , Container } from "semantic-ui-react";
 
 function RecipeCard ({ recipe }) {
 
 const { title, cuisine, time, image_URL, difficulty } = recipe;
+
 return (
     <Card>
         <Image src= {image_URL} alt={title} wrapped ui={false}/>

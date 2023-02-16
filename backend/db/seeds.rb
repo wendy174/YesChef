@@ -64,6 +64,17 @@ Recipe.create(
     )
 
 Recipe.create(
+    image_URL: "https://www.thespruceeats.com/thmb/ovIQQQxQajADuIE2lqhgqq7ppyE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/pasta-carbonara-recipe-5210168-hero-01-80090e56abc04ca19d88ebf7fad1d157.jpg",
+    title: "Carbonara",
+    ingredients: "12 ounces spaghetti, 3.5 ounces pancetta or bacon, 2 large eggs, 1 ounce grated pecorino Romano plus more for topping, 1 ounce grated Parmesan, salt, coarse black pepper, olive oil",
+    steps: "Cook pancetta/bacon and slice into small pieces. Place a large pot of lightly salted water (no more than 1 tablespoon salt) over high heat, and bring to a boil. Fill a large bowl with hot water for serving, and set aside. In a mixing bowl, whisk together the eggs, yolks and pecorino and Parmesan. Season with a pinch of salt and generous black pepper. Set the water to boil. Meanwhile, heat oil in a large skillet over medium heat, add the pork, and sauté until the fat just renders, on the edge of crispness but not hard. Remove from heat and set aside. Add pasta to the water and boil until a bit firmer than al dente. Just before pasta is ready, reheat guanciale in skillet, if needed. Reserve 1 cup of pasta water, then drain pasta and add to the skillet over low heat. Stir for a minute or so. Empty serving bowl of hot water. Dry it and add hot pasta mixture. Stir in cheese mixture, adding some reserved pasta water if needed for creaminess. Serve immediately, dressing it with a bit of additional grated pecorino and pepper.",
+    cuisine: "Italian",
+    time: 35,
+    difficulty: "hard",
+    user_id: User.all.sample.id
+    )
+
+Recipe.create(
     image_URL: "https://cafedelites.com/wp-content/uploads/2018/07/pad-thai-6.jpg",
     title: "Pad Thai",
     ingredients: "rice noodles, shrimp, tofu, bean sprouts, egg, green onions, garlic, peanuts, lime",

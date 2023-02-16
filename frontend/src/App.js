@@ -33,6 +33,8 @@ function App() {
       .then((data) => setCurrentUser(data));
     }, [currentUser.id])
 
+    console.log(currentUser)
+
     // function for logging in users
     function login(loginData) {
     // using .find to match user email with what was entered on the DOM

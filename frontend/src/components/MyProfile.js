@@ -5,24 +5,18 @@ import { Card } from "semantic-ui-react";
 import Header from "./Header";
 
 function MyProfile ({currentUser}) {
+    const myRecipes = currentUser.recipes.map((recipe) => {
+        return <RecipeCard key={recipe.id} recipe={recipe} />
+        // console.log(currentUser)
+    })
+
     return (
         <>
             <Header/>
             <h1>{currentUser.first_name}'s Kitchen</h1>
+            <Card.Group itemsPerRow={5}>{myRecipes}</Card.Group>
         </>
     )
 }
 
 export default MyProfile;
-
-
-
-
-function RecipeCollection({ allRecipes }) {
-    const cards = allRecipes.map((recipe) => (
-        <RecipeCard key={recipe.id} recipe={recipe} />
-    ));
-
-    return (<Card.Group itemsPerRow={5}>{cards}</Card.Group>)
-
-}

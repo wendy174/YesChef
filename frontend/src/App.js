@@ -80,7 +80,7 @@ function App() {
         />
         <Route
           path="/mykisses"
-          element={<Kisses setCurrentUser={setCurrentUser}/>}
+          element={<Kisses currentUser={currentUser}/>}
         />
         <Route
           path="/home"

@@ -34,7 +34,7 @@ return (
             </Label>
             <Button icon>
                 <Icon name='thumbs down' />
-                Mess
+                
             </Button>
          </Button>
         </div>

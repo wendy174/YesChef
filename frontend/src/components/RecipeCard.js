@@ -5,6 +5,12 @@ import { Card , Button , Icon , Label , Image , Container } from "semantic-ui-re
 function RecipeCard ({ recipe }) {
 
 const { title, cuisine, time, image_URL, difficulty } = recipe;
+const kiss_count = recipe.kisses.map (kiss => kiss)
+const kiss_count_total = kiss_count.length
+const mess_count = recipe.messes.map (mess => mess)
+const mess_count_total = mess_count.length
+const comment_count = recipe.comments.map (comment => comment)
+const comment_count_total = comment_count.length
 
 return (
     <Card>
@@ -25,14 +31,14 @@ return (
                         Yes
                     </Button>
                     <Label as='a' basic pointing='left'>
-                        123,657
+                        {kiss_count_total}
                     </Label>
                 </Button>
                 <br></br>
                 <br></br>
                 <Button as='div' labelPosition='left'>
                     <Label as='a' basic pointing='right'>
-                        2,048
+                        {mess_count_total}
                     </Label>
                     <Button icon>
                         <Icon name='thumbs down' />
@@ -44,7 +50,7 @@ return (
         <Card.Content extra>
             <div class="content">
                 <i class="comment icon"></i>
-                3 comments
+                {comment_count_total} comments
             </div>
         </Card.Content>
     </Card>

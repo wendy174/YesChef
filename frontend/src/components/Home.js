@@ -7,7 +7,6 @@ import RecipeCard from './RecipeCard';
 import NewRecipe from './NewRecipe';
 
 function Home ({setLoggedIn}) {
-
     const [homeRecipes, setRecipes] = useState([]);
 
     useEffect (() => {
@@ -16,9 +15,7 @@ function Home ({setLoggedIn}) {
         .then(setRecipes);
     }, []);
 
-    function handleNewRecipe(newRecipe) {
-        setRecipes([...homeRecipes, newRecipe])
-    }
+
     return (
         <Container>
             <Header setLoggedIn={setLoggedIn}/>

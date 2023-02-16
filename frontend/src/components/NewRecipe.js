@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import NavBar from './NavBar';
 import Header from './Header';
 
-import { Button, Form, TextArea } from 'semantic-ui-react'
+import { Button, Form, TextArea , Container } from 'semantic-ui-react'
 
 
 // import { useNavigate } from "react-router-dom";
@@ -51,6 +51,7 @@ function handleSubmit(e) {
     return (
 
         <>
+        <Container>
         <Header/>
         <h1>Add a new recipe</h1>
         <div class="ui centered grid">
@@ -90,9 +91,9 @@ function handleSubmit(e) {
                 </Form>
             </div>
         </div>
-    </div> 
-        </>
-
+    </div>
+   </Container>
+   </>
     )
    
 }

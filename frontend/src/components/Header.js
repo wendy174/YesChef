@@ -17,14 +17,15 @@ function Header({setLoggedIn, currentUser}) {
     return (
         <div>
         <img className="logo" alt="Yes, Chef!" src={toplogo} />
-        <Menu secondary pointing>
-            <Menu.Item position="right" as={Link} to ="/home">Home</Menu.Item>
-            <Menu.Item position="right" as={Link} to ="/recipes">Browse Recipes</Menu.Item>
-            <Menu.Item position="right" as={Link} to ="/newrecipe">New Recipe</Menu.Item>
-            <Menu.Item position="right" as={Link} to ="/mykisses">Chef's Kisses</Menu.Item>
-            <Menu.Item position="right" as={Link} to ="/profile">My Kitchen</Menu.Item>
+        <Menu ui secondary pointing>
+            <Menu.Item position="left" as={Link} to ="/home">Home</Menu.Item>
+            <Menu.Item position="left" as={Link} to ="/recipes">Browse Recipes</Menu.Item>
+            <Menu.Item position="left" as={Link} to ="/newrecipe">New Recipe</Menu.Item>
+            <Menu.Item position="left" as={Link} to ="/mykisses">Chef's Kisses</Menu.Item>
+            <Menu.Item position="left" as={Link} to ="/profile">My Kitchen</Menu.Item>
             <Menu.Item position="right" as={Link} onClick={handleLogout}>Logout</Menu.Item>
         </Menu>
+
         </div>
     )
 }

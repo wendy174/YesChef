@@ -24,7 +24,7 @@ function Login ( { setCurrentUser, login } ) {
     return (
         <div>
             <img className="logo" alt="Yes, Chef!" src={toplogo} />
-            <h1>Welcome Back to Yes, Chef!</h1>
+            <h3>Welcome Back to Yes, Chef!</h3>
             <form onSubmit={handleSubmit}>
                 <label>Email
                     <input

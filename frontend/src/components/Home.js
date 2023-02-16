@@ -16,7 +16,7 @@ function Home ({setLoggedIn}) {
     return (
         <Container>
             <NavBar setLoggedIn={setLoggedIn}/>
-            <h1>Yes, Chef!</h1>
+            <h1>Today's Top Recipes</h1>
             <HomeCollection homeRecipes={homeRecipes} />
         </Container>
     )

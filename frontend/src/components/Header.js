@@ -18,8 +18,6 @@ function Header({setLoggedIn, currentUser}) {
         <div>
         <img className="logo" alt="Yes, Chef!" src={toplogo} />
         <Menu secondary pointing>
-            {/* <Image postition="left" src={logo} width={60} />
-            <Menu.Item position="left" style={{fontSize: 24}}>Yes, Chef!</Menu.Item> */}
             <Menu.Item position="right" as={Link} to ="/home">Home</Menu.Item>
             <Menu.Item position="right" as={Link} to ="/recipes">Browse Recipes</Menu.Item>
             <Menu.Item position="right" as={Link} to ="/newrecipe">New Recipe</Menu.Item>

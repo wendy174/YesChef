@@ -33,7 +33,7 @@ class RecipesController < ApplicationController
     # CREATE: post for creating new recipe
     post "/recipes" do
         recipe = Recipe.create(params)
-        recipe.to_json
+        recipe.to_json(include: [:kisses, :comments, :messes])
     end
 
     # UPDATE: patch for updating recipe

@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from './NavBar';
+import Header from './Header';
 
 // import { useNavigate } from "react-router-dom";
 
@@ -9,7 +10,7 @@ import NavBar from './NavBar';
 function NewRecipe () {
     return (
         <>
-        <NavBar/>
+        <Header/>
         <h1>Add a new recipe</h1>
         </>
     )

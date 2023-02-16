@@ -64,6 +64,10 @@ function App() {
       }
     }
 
+    function handleNewRecipe(newRecipe) {
+      setAllRecipes([...allRecipes, newRecipe])
+  }
+
   return (
     <div className="App">
       {/* <img className="logo" alt="Yes, Chef!" src={logo} /> */}
@@ -76,7 +80,7 @@ function App() {
         />
         <Route
           path="/newrecipe"
-          element={<NewRecipe setCurrentUser={setCurrentUser}/>}
+          element={<NewRecipe currentUser={currentUser} handleNewRecipe={handleNewRecipe}/>}
         />
         <Route
           path="/mykisses"

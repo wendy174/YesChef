@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import { useNavigate } from "react-router-dom";
-import NavBar from './NavBar';
 import Header from './Header';
 
 import { Button, Form, TextArea , Container } from 'semantic-ui-react'

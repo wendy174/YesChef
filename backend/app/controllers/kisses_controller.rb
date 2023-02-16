@@ -14,7 +14,10 @@ class KissesController < ApplicationController
 
     # CREATE: post for creating new kiss
     post "/kisses" do
-        kiss = Kiss.create(params)
+        kiss = Kiss.create(
+            user_id: params[:user_id],
+            recipe_id: params[:recipe_id]
+        )
         kiss.to_json
     end
 

@@ -3,20 +3,20 @@ import NavBar from './NavBar';
 import HomeCollection from './HomeCollection';
 import { Container } from "semantic-ui-react"
 
-function Home () {
+function Home ({setLoggedIn}) {
 
     const [homeRecipes, setRecipes] = useState([]);
 
     useEffect (() => {
-        fetch("http://localhost:9292/")
+        fetch("http://localhost:9292/home")
         .then(res => res.json())
         .then(setRecipes);
     }, []);
 
     return (
         <Container>
-            <NavBar/>
-            <h1>Today's Top Recipes</h1>
+            <NavBar setLoggedIn={setLoggedIn}/>
+            <h1>Yes, Chef!</h1>
             <HomeCollection homeRecipes={homeRecipes} />
         </Container>
     )

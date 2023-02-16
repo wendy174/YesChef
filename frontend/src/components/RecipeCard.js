@@ -1,9 +1,15 @@
 import React, {useState, useEffect} from 'react';
-import { Card , Button , Icon , Label , Image , Container } from "semantic-ui-react";
+import { Card , Button , Icon , Label , Image , Container. Modal } from "semantic-ui-react";
 
-function RecipeCard ({ recipe , currentUser }) {
+function RecipeCard ({ recipe , currentUser, allcomment }) {
 
-const { title, cuisine, time, image_URL, difficulty , id } = recipe;
+const { title, steps, ingredients, cuisine, time, image_URL, difficulty  } = recipe;
+const [openSteps, setOpenSteps] = useState(false); 
+
+const handleClick = () => {
+    setOpenSteps(true);
+}
+
 let kiss_count = recipe.kisses.map (kiss => kiss)
 const kiss_count_total = kiss_count.length
 let mess_count = recipe.messes.map (mess => mess)
@@ -66,9 +72,8 @@ function handleMessClick() {
     console.log(mess_count)
 }
 
-
 return (
-    <Card>
+    <Card onClick = {handleClick}>
         <Image src= {image_URL} alt={title} wrapped ui={false}/>
         <Card.Content>
         <Card.Header>{title}</Card.Header>
@@ -108,6 +113,17 @@ return (
                 {comment_count_total} comments
             </div>
         </Card.Content>
+        <Modal open = {openSteps} onClose = {() => setOpenSteps(false)} >
+            <Modal.Header> {title}   </Modal.Header>
+            <Modal.Content> 
+                <h3>Ingredients </h3>
+                <h3><span>-  {ingredients} </span> <br></br></h3>
+                <div class="ui divider"></div>
+                <h4>Steps </h4>
+                <h4><span>{steps}</span> <br></br></h4>
+            </Modal.Content>
+
+        </Modal>
     </Card>
 )
 }

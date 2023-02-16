@@ -6,6 +6,7 @@ function RecipeCollection({ allRecipes, currentUser }) {
     const cards = allRecipes.map((recipe) => (
         <RecipeCard currentUser={currentUser} key={recipe.id} recipe={recipe} />
     ));
+    console.log("CARDS", cards)
 
     return (<Card.Group itemsPerRow={5}>{cards}</Card.Group>)
 

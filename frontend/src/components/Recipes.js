@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import NavBar from './NavBar';
 import RecipeCollection from './RecipeCollection';
 import Search from './Search';
 import Header from './Header'
-import { Dropdown } from 'semantic-ui-react'
+import { Dropdown , Container } from 'semantic-ui-react'
 
-function Recipes ({allRecipes}) {
+function Recipes ({allRecipes, currentUser}) {
 
     // const [allRecipes, setAllRecipes] = useState([]);
     const [searchItem, setSearchItem] = useState("");
@@ -56,6 +55,7 @@ function Recipes ({allRecipes}) {
 
     return (
         <>
+            <Container>
             <Header/>
             <h1>Recipes</h1>
             <Search position="left"
@@ -86,6 +86,10 @@ function Recipes ({allRecipes}) {
                     <option value="hard">Hard</option>
                 </select>
             </div>
+            {/* <div class="ui selection dropdown">
+                <input type="hidden" name="Filter by Difficulty" />
+                <i class="dropdown icon"></i>
+            </div> */}
             <div class ="filters">
                 <h3>Filter by Cooking Time</h3>
                 <select onChange={selectedTime}>
@@ -97,7 +101,9 @@ function Recipes ({allRecipes}) {
                     <option value="75">75 minutes max</option>
                 </select>
             </div>
-            <RecipeCollection allRecipes={filteredRecipes}/>
+            <br></br>
+            <RecipeCollection currentUser={currentUser} allRecipes={filteredRecipes}/>
+            </Container>
         </>
     )
 }

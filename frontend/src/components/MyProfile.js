@@ -1,7 +1,6 @@
 import React from 'react';
-import NavBar from './NavBar';
 import RecipeCard from "./RecipeCard";
-import { Card } from "semantic-ui-react";
+import { Card , Container } from "semantic-ui-react";
 import Header from "./Header";
 
 function MyProfile ({currentUser}) {
@@ -11,9 +10,11 @@ function MyProfile ({currentUser}) {
 
     return (
         <>
+            <Container>
             <Header/>
             <h1>{currentUser.first_name}'s Kitchen</h1>
             <Card.Group itemsPerRow={5}>{myRecipes}</Card.Group>
+            </Container>
         </>
     )
 }

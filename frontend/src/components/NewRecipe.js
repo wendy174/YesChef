@@ -1,30 +1,23 @@
 import React, {useState} from 'react';
-import NavBar from './NavBar';
+import { useNavigate } from "react-router-dom";
 import Header from './Header';
 
-import { Button, Form, TextArea } from 'semantic-ui-react'
+import { Button, Form, TextArea , Container } from 'semantic-ui-react'
 
-
-// import { useNavigate } from "react-router-dom";
-
-// this will allow us to navigate back to the recipes page or directly to the newly added recipe
-// const navigate = useNavigate();
-
-
-// how to conntec who is logged in with the user id 
-
-function NewRecipe ({handleNewRecipe}) {
-
+function NewRecipe ({handleNewRecipe, currentUser}) {
     const [title, setTitle] = useState('')
     const [image, setImage] = useState('')
     const [ingredients, setIngredients] = useState('')
     const [steps, setSteps] = useState('')
     const [cuisine, setCuisine] = useState('')
-    const [time, setTime] = useState(0) 
+    const [time, setTime] = useState(0)
     const [difficulty, setDifficulty] = useState('')
- 
-function handleSubmit(e) { 
-    e.preventDefault(); 
+
+// this will allow us to navigate back to the recipes page or directly to the newly added recipe
+const navigate = useNavigate();
+
+function handleSubmit(e) {
+    e.preventDefault();
 
     const newRecipe = {
         title: title,
@@ -32,25 +25,27 @@ function handleSubmit(e) {
         ingredients: ingredients,
         steps: steps,
         cuisine: cuisine,
-        time: time, 
-        difficulty: difficulty, 
-        user_id: 1
+        time: time,
+        difficulty: difficulty,
+        user_id: currentUser.id
     }
 
-    //something wrong with this fetch request 
+    //something wrong with this fetch request
     fetch("http://localhost:9292/recipes", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newRecipe),
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newRecipe),
     })
     .then(resp => resp.json())
     .then(newRecipe => handleNewRecipe(newRecipe));
+    navigate("/recipes")
 }
     return (
 
         <>
+        <Container>
         <Header/>
         <h1>Add a new recipe</h1>
         <div class="ui centered grid">
@@ -90,9 +85,9 @@ function handleSubmit(e) {
                 </Form>
             </div>
         </div>
-    </div> 
-        </>
-
+    </div>
+   </Container>
+   </>
     )
    
 }

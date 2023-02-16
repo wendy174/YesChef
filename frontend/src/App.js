@@ -64,6 +64,10 @@ function App() {
       }
     }
 
+    function handleNewRecipe(newRecipe) {
+      setAllRecipes([...allRecipes, newRecipe])
+  }
+
   return (
     <div className="App">
       {/* <img className="logo" alt="Yes, Chef!" src={logo} /> */}
@@ -72,11 +76,11 @@ function App() {
       <Routes>
         <Route
           path="/recipes"
-          element={<Recipes setCurrentUser={setCurrentUser} allRecipes={allRecipes}/>}
+          element={<Recipes currentUser={currentUser} allRecipes={allRecipes}/>}
         />
         <Route
           path="/newrecipe"
-          element={<NewRecipe setCurrentUser={setCurrentUser}/>}
+          element={<NewRecipe currentUser={currentUser} handleNewRecipe={handleNewRecipe}/>}
         />
         <Route
           path="/mykisses"
@@ -84,7 +88,7 @@ function App() {
         />
         <Route
           path="/home"
-          element={<Home setCurrentUser={setCurrentUser} setLoggedIn={setLoggedIn}/>}
+          element={<Home currentUser={currentUser} setLoggedIn={setLoggedIn}/>}
         />
         <Route
           path="/profile"

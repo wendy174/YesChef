@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import NavBar from './NavBar';
 import Header from './Header';
 import HomeCollection from './HomeCollection';
 import { Container } from "semantic-ui-react"
 import RecipeCard from './RecipeCard';
 import NewRecipe from './NewRecipe';
 
-function Home ({setLoggedIn}) {
-
+function Home ({setLoggedIn, currentUser}) {
     const [homeRecipes, setRecipes] = useState([]);
     const [comments, setComments] = useState([]);
 
@@ -30,11 +28,12 @@ function Home ({setLoggedIn}) {
     function handleNewComment(newComment){
         setComments([...comments,newComment])
     }
+
     return (
         <Container>
             <Header setLoggedIn={setLoggedIn}/>
             <h1>Today's Top Recipes</h1>
-            <HomeCollection homeRecipes={homeRecipes} comments = {comments} />
+            <HomeCollection currentUser={currentUser} homeRecipes={homeRecipes} comments={comments}/>
         </Container>
     )
 }

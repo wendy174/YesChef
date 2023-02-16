@@ -1,19 +1,75 @@
-import React, {useState} from 'react';
-// import { NavLink } from "react-router-dom";
-import { Card , Button , Icon , Label , Image , Container, Modal } from "semantic-ui-react";
-function RecipeCard ({ recipe , allcomment}) {
+import React, {useState, useEffect} from 'react';
+import { Card , Button , Icon , Label , Image , Container. Modal } from "semantic-ui-react";
+
+function RecipeCard ({ recipe , currentUser, allcomment }) {
 
 const { title, steps, ingredients, cuisine, time, image_URL, difficulty  } = recipe;
-
-
-console.log("beforeallcomment")
-console.log(allcomment, "allcomment")
-console.log(recipe, "reipe")
-
 const [openSteps, setOpenSteps] = useState(false); 
 
 const handleClick = () => {
     setOpenSteps(true);
+}
+
+let kiss_count = recipe.kisses.map (kiss => kiss)
+const kiss_count_total = kiss_count.length
+let mess_count = recipe.messes.map (mess => mess)
+const mess_count_total = mess_count.length
+const comment_count = recipe.comments.map (comment => comment)
+const comment_count_total = comment_count.length
+
+const [kissCount, setKissCount] = useState(kiss_count_total || 0)
+const [messCount, setMessCount] = useState(mess_count_total || 0)
+
+function handleYesClick() {
+
+    const newKiss = {
+        user_id: currentUser.id,
+        recipe_id: id
+        }
+    // if (recipe.kisses.includes(currentUser.id && id)) {
+    //     alert("You have already liked this recipe")
+    // }
+    // else {
+    fetch("http://localhost:9292/kisses", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        },
+    body: JSON.stringify(newKiss),
+        })
+    .then(resp => resp.json())
+    .then(data => {
+        //kiss_count isn't accurately reflecting
+        kiss_count = [...kiss_count, data]
+        setKissCount(prev => prev+1)
+    })
+    console.log(kiss_count)
+};
+
+function handleMessClick() {
+
+    const newMess = {
+        user_id: currentUser.id,
+        recipe_id: id
+        }
+    // if (recipe.kisses.includes(currentUser.id && id)) {
+    //     alert("You have already liked this recipe")
+    // }
+    // else {
+    fetch("http://localhost:9292/messes", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        },
+    body: JSON.stringify(newMess),
+        })
+    .then(resp => resp.json())
+    .then(data => {
+        //mess_count isn't accurately reflecting
+        mess_count = [...mess_count, data]
+        setMessCount(prev => prev+1)
+    })
+    console.log(mess_count)
 }
 
 return (
@@ -30,21 +86,21 @@ return (
         <Card.Content>
             <div>
                 <Button  as='div' labelPosition='right'>
-                    <Button icon>
+                    <Button icon onClick={handleYesClick}>
                         <Icon name='thumbs up' />
                         Yes
                     </Button>
                     <Label as='a' basic pointing='left'>
-                        123,657
+                        {kissCount}
                     </Label>
                 </Button>
                 <br></br>
                 <br></br>
                 <Button as='div' labelPosition='left'>
                     <Label as='a' basic pointing='right'>
-                        2,048
+                        {messCount}
                     </Label>
-                    <Button icon>
+                    <Button icon onClick={handleMessClick}>
                         <Icon name='thumbs down' />
                         Mess
                     </Button>
@@ -54,7 +110,7 @@ return (
         <Card.Content extra>
             <div class="content">
                 <i class="comment icon"></i>
-                3
+                {comment_count_total} comments
             </div>
         </Card.Content>
         <Modal open = {openSteps} onClose = {() => setOpenSteps(false)} >

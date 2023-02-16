@@ -1,7 +1,7 @@
 import React from "react";
 import { Menu, Image, Button } from "semantic-ui-react"
 import {Link} from 'react-router-dom'
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import logo from "./YC Logo.png";
 import toplogo from "./logo.png"

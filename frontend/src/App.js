@@ -12,12 +12,21 @@ import logo from "./components/logo.png";
 
 function App() {
     // state
+    const [allRecipes, setAllRecipes] = useState([]);
     const [users, setUsers] = useState();
     const [currentUser, setCurrentUser] = useState({});
     const [loggedIn, setLoggedIn] = useState(false);
     // const [userId, setUserId] = useState(null)
 
     const navigate = useNavigate();
+
+    // fetching all recipes
+    useEffect (() => {
+      fetch("http://localhost:9292/recipes")
+      .then(res => res.json())
+      .then(setAllRecipes);
+    }, []);
+    console.log(allRecipes)
 
     // fetch users from database and store users in state for iterating
     useEffect(() => {
@@ -63,7 +72,7 @@ function App() {
       <Routes>
         <Route
           path="/recipes"
-          element={<Recipes setCurrentUser={setCurrentUser}/>}
+          element={<Recipes setCurrentUser={setCurrentUser} allRecipes={allRecipes}/>}
         />
         <Route
           path="/newrecipe"
@@ -79,7 +88,7 @@ function App() {
         />
         <Route
           path="/profile"
-          element={<MyProfile currentUser={currentUser}/>}
+          element={<MyProfile currentUser={currentUser} allRecipes={allRecipes}/>}
         />
         {/* <Route
           path="/"

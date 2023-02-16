@@ -2,6 +2,8 @@ puts "Deleting user/recipe/comments/kisses data..."
 User.destroy_all
 Comment.destroy_all
 Recipe.destroy_all
+Kiss.destroy_all
+Mess.destroy_all
 
 puts "🌱 Seeding spices..."
 
@@ -13,7 +15,7 @@ user2 = User.create(user_name: "josh123", first_name: "Josh", last_name: "Kim", 
 
 user3= User.create(user_name: "liza123", first_name: "Liza", last_name: "McLain", email: "liza123@liza.com", password: "liza123", image_URL: "https://images.unsplash.com/photo-1664575602554-2087b04935a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
 
-user4 = User.create(user_name: "wendy123", first_name: "Wendy", last_name: "Yeung", email: "wendy123@wendy.com", password: "we dy123", image_URL: "https://images.unsplash.com/photo-1556908247-45afb446ed86?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+user4 = User.create(user_name: "wendy123", first_name: "Wendy", last_name: "Yeung", email: "wendy123@wendy.com", password: "wendy123", image_URL: "https://images.unsplash.com/photo-1556908247-45afb446ed86?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
 
 user5 = User.create(user_name: "alex123", first_name: "Alex", last_name: "Smith", email: "alex123@malex.com", password: "alex123", image_URL: "https://images.unsplash.com/photo-1519713880332-91cfe19a59dd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
 puts "Done creating users"

@@ -50,11 +50,10 @@ function handleSubmit(e) {
 }
     return (
 
-        // <>
-        // <NavBar/>
-        // <h1>Add a new recipe</h1>
-        // </>
-    <div class="ui centered grid">
+        <>
+        <Header/>
+        <h1>Add a new recipe</h1>
+        <div class="ui centered grid">
         <div class="eight wide column">
             <div class="ui segment">
                 <Form onSubmit= {handleSubmit}>
@@ -92,6 +91,7 @@ function handleSubmit(e) {
             </div>
         </div>
     </div> 
+        </>
 
     )
    

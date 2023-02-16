@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import NavBar from './NavBar';
 import RecipeCollection from './RecipeCollection';
 import Search from './Search';
+import Header from './Header';
 
 function Recipes () {
 
@@ -54,7 +55,7 @@ function Recipes () {
 
     return (
         <>
-            <NavBar/>
+            <Header/>
             <h1>Recipes</h1>
             <Search
                 searchItem={searchItem}

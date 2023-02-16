@@ -2,11 +2,12 @@ import React from 'react';
 import NavBar from './NavBar';
 import RecipeCard from "./RecipeCard";
 import { Card } from "semantic-ui-react";
+import Header from "./Header";
 
 function MyProfile ({currentUser}) {
     return (
         <>
-            <NavBar/>
+            <Header/>
             <h1>{currentUser.first_name}'s Kitchen</h1>
         </>
     )

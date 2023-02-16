@@ -3,6 +3,8 @@ import NavBar from './NavBar';
 import Header from './Header';
 import HomeCollection from './HomeCollection';
 import { Container } from "semantic-ui-react"
+import RecipeCard from './RecipeCard';
+import NewRecipe from './NewRecipe';
 
 function Home ({setLoggedIn}) {
 
@@ -14,6 +16,9 @@ function Home ({setLoggedIn}) {
         .then(setRecipes);
     }, []);
 
+    function handleNewRecipe(newRecipe) {
+        setRecipes([...homeRecipes, newRecipe])
+    }
     return (
         <Container>
             <Header setLoggedIn={setLoggedIn}/>

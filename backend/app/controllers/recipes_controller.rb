@@ -31,10 +31,10 @@ class RecipesController < ApplicationController
     end
 
     # CREATE: post for creating new recipe
-    post "/recipes" do
-        recipe = Recipe.create(params)
-        recipe.to_json(include: [:kisses, :comments, :messes])
-    end
+    # post "/recipes" do
+    #     recipe = Recipe.create(params)
+    #     recipe.to_json(include: [:kisses, :comments, :messes])
+    # end
 
     # UPDATE: patch for updating recipe
     patch "/recipes/:id" do
@@ -48,5 +48,19 @@ class RecipesController < ApplicationController
         recipe = Recipe.find(params[:id])
         recipe.destroy
         recipe.to_json
+    end
+
+    # post request for new recipe form 
+    post '/recipes' do 
+        Recipe.create(
+            title: params[:title], 
+            image_URL: params[:image_URL], 
+            ingredients: params[:ingredients],
+            steps: params[:steps], 
+            cuisine: params[:cuisine], 
+            time: params[:time], 
+            difficulty: params[:difficulty], 
+            user_id: params[:user_id]
+        ).to_json(include: [:kisses, :comments, :messes])
     end
 end

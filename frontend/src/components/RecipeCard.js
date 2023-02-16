@@ -1,13 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 // import { NavLink } from "react-router-dom";
-import { Card , Button , Icon , Label , Image , Container } from "semantic-ui-react";
+import { Card , Button , Icon , Label , Image , Container, Modal } from "semantic-ui-react";
+function RecipeCard ({ recipe , allcomment}) {
 
-function RecipeCard ({ recipe }) {
+const { title, steps, ingredients, cuisine, time, image_URL, difficulty  } = recipe;
 
-const { title, cuisine, time, image_URL, difficulty } = recipe;
+
+console.log("beforeallcomment")
+console.log(allcomment, "allcomment")
+console.log(recipe, "reipe")
+
+const [openSteps, setOpenSteps] = useState(false); 
+
+const handleClick = () => {
+    setOpenSteps(true);
+}
 
 return (
-    <Card>
+    <Card onClick = {handleClick}>
         <Image src= {image_URL} alt={title} wrapped ui={false}/>
         <Card.Content>
         <Card.Header>{title}</Card.Header>
@@ -44,9 +54,20 @@ return (
         <Card.Content extra>
             <div class="content">
                 <i class="comment icon"></i>
-                3 comments
+                3
             </div>
         </Card.Content>
+        <Modal open = {openSteps} onClose = {() => setOpenSteps(false)} >
+            <Modal.Header> {title}   </Modal.Header>
+            <Modal.Content> 
+                <h3>Ingredients </h3>
+                <h3><span>-  {ingredients} </span> <br></br></h3>
+                <div class="ui divider"></div>
+                <h4>Steps </h4>
+                <h4><span>{steps}</span> <br></br></h4>
+            </Modal.Content>
+
+        </Modal>
     </Card>
 )
 }

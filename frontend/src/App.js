@@ -55,7 +55,7 @@ function App() {
 
   return (
     <div className="App">
-      <img className="logo" alt="Yes, Chef!" src={logo} />
+      {/* <img className="logo" alt="Yes, Chef!" src={logo} /> */}
       {/* ternary for if logged in is true. if so, user can see all routes and site, if not, will return to login page*/}
       {(loggedIn === true) ? (
       <Routes>

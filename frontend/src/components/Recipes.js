@@ -3,7 +3,7 @@ import NavBar from './NavBar';
 import RecipeCollection from './RecipeCollection';
 import Search from './Search';
 import Header from './Header'
-import { Dropdown } from 'semantic-ui-react'
+import { Dropdown , Container } from 'semantic-ui-react'
 
 function Recipes ({allRecipes}) {
 
@@ -56,6 +56,7 @@ function Recipes ({allRecipes}) {
 
     return (
         <>
+            <Container>
             <Header/>
             <h1>Recipes</h1>
             <Search position="left"
@@ -97,7 +98,9 @@ function Recipes ({allRecipes}) {
                     <option value="75">75 minutes max</option>
                 </select>
             </div>
+            <br></br>
             <RecipeCollection allRecipes={filteredRecipes}/>
+            </Container>
         </>
     )
 }

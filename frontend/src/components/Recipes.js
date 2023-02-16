@@ -4,21 +4,21 @@ import RecipeCollection from './RecipeCollection';
 import Search from './Search';
 import Header from './Header';
 
-function Recipes () {
+function Recipes ({allRecipes}) {
 
-    const [allRecipes, setAllRecipes] = useState([]);
+    // const [allRecipes, setAllRecipes] = useState([]);
     const [searchItem, setSearchItem] = useState("");
     const [selectedCuisine, setSelectedCuisine] = useState("All")
     const [selectedDifficulty, setSelectedDifficulty] = useState("All")
     const [selectedCookingTime, setSelectedCookingTime] = useState("All")
 
     // fetching all recipes
-    useEffect (() => {
-        fetch("http://localhost:9292/recipes")
-        .then(res => res.json())
-        .then(setAllRecipes);
-    }, []);
-    console.log(allRecipes)
+    // useEffect (() => {
+    //     fetch("http://localhost:9292/recipes")
+    //     .then(res => res.json())
+    //     .then(setAllRecipes);
+    // }, []);
+    // console.log(allRecipes)
 
     // filter items with search
     const recipeToDisplay = allRecipes.filter((recipe) => recipe.title.toLowerCase().includes(searchItem.toLowerCase()))

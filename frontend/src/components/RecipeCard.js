@@ -24,7 +24,7 @@ return (
                         Yes
                     </Button>
                     <Label as='a' basic pointing='left'>
-                            2,048
+                        123,657
                     </Label>
                 </Button>
                 <Button as='div' labelPosition='left'>

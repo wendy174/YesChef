@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import { Card , Button , Icon , Label , Image , Container. Modal } from "semantic-ui-react";
+import { Card , Button , Icon , Label , Image , Container, Modal } from "semantic-ui-react";
 
 function RecipeCard ({ recipe , currentUser, allcomment }) {
 
-const { title, steps, ingredients, cuisine, time, image_URL, difficulty  } = recipe;
-const [openSteps, setOpenSteps] = useState(false); 
+const { title, steps, ingredients, cuisine, time, image_URL, difficulty, id  } = recipe;
+const [openSteps, setOpenSteps] = useState(false);
 
 const handleClick = () => {
     setOpenSteps(true);

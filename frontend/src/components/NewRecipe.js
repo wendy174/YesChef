@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { useNavigate } from "react-router-dom";
 import Header from './Header';
 
-import { Button, Form, TextArea , Container } from 'semantic-ui-react'
+import { Button, Form, TextArea , Container, Dropdown } from 'semantic-ui-react'
 
 function NewRecipe ({handleNewRecipe, currentUser}) {
     const [title, setTitle] = useState('')
@@ -74,13 +74,23 @@ function handleSubmit(e) {
                     <input placeholder='Cuisine' value={cuisine} onChange={(e) => setCuisine(e.target.value)} />
                     </Form.Field>
                     <Form.Field>
-                    <label>Time</label>
+                    <label>Time (min)</label>
                     <input placeholder='Time' value={time} onChange={(e) => setTime(e.target.value)} />
                     </Form.Field>
                     <Form.Field>
+                        <label>Select Difficulty</label>
+                        <Dropdown
+                            placeholder='Difficulty'
+                            selection
+                            options={[{ key: 'easy', value: 'easy', text: 'easy' },{ key: 'moderate', value: 'moderate', text: 'moderate' },{ key: 'hard', value: 'hard', text: 'hard' },        ]}
+                            value={difficulty}
+                            onChange={(e, data) => setDifficulty(data.value)}
+                        />
+                    </Form.Field>
+                    {/* <Form.Field>
                     <label>Difficulty</label>
                     <input placeholder='Difficulty' value={difficulty} onChange={(e) => setDifficulty(e.target.value)} />
-                    </Form.Field>
+                    </Form.Field> */}
                     <Button type='submit'>Submit</Button>
                 </Form>
             </div>

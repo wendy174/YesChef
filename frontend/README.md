@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# Yes, Chef!
+Phase 3 Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
+Yes, Chef! is a recipe sharing platform that allows users to view, rate, and create recipes of all types.
 
-## Available Scripts
+## Repo
+* GitHub Repository: https://github.com/lizareed5/phase-3-project-maestro
 
-In the project directory, you can run:
+## Technologies
+* Ruby
+* Sinata
+* React
+* JavaScript
+* HTML
+* CSS
+* JSON
+* Semantic UI
 
-### `npm start`
+## User Stories
+The user can:
+* Login to an existing account
+* View top rated recipes
+* View recipe details
+* Yes or Mess different recipes
+* Add favorite recipes to their list of kisses
+* Create a new recipe
+* Browse all recipes
+* Filter recipes by categories such as cuisine, difficulty, and time
+* Logout
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Setup
+To run this project, follow the following steps:
+1. Clone [repository](https://github.com/lizareed5/phase-3-project-maestro)
+```
+git clone https://github.com/lizareed5/phase-3-project-maestro
+```
+2. Install packages and run server
+```
+cd phase-3-project-maestro/backend
+```
+run bundle install
+```
+run rake server
+```
+3. Install packages and start the app
+```
+npm i && npm start
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Domain Model
+<img
+  src="./components/Maestro Domain Model.png"
+  alt="Domain Model"
+  title="Domain Model">
 
-### `npm test`
+### Backend API Points
+METHOD | ENDPOINT | DESCRIPTION
+------ | ---------| -----------
+GET | /home | gets top 5 recipes (by yesses) from the database
+GET | /comments/:id | fetches all comments for a particular recipe from the database
+GET | /kisses/:id | fetches all kisses (likes) for a particular recipe from the database
+GET | /messes/:id | fetches all messes (dislikes) for a particular recipe from the database
+POST | /kisses/:id | posts a new kiss (like) to a recipe and updates the database
+POST | /messes/:id | posts a new mess (dislike) to a recipe and updates the database
+GET | /recipes | fetches all recipes and associated information from database
+POST | /recipes | posts a newly created recipe to the recipe database
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Client-Side Routes
+ROUTE | DESCRIPTION
+---------| -----------
+/ | home page + login page
+/home | view top recipes
+/recipes | view all recipes
+/newrecipe | create a new recipe
+/profile | view recipes created by user
+/mykisses | view recipes liked by the user

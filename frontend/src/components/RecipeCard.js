@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Card , Button , Icon , Label , Image , Container, Modal } from "semantic-ui-react";
 
-function RecipeCard ({ recipe , currentUser, allcomment }) {
+function RecipeCard ({ recipe , currentUser, allcomment, setAllRecipes, handleDeleteRecipe }) {
 
 const { title, steps, ingredients, cuisine, time, image_URL, difficulty, id  } = recipe;
 const [openSteps, setOpenSteps] = useState(false);
@@ -72,9 +72,20 @@ function handleMessClick() {
     console.log(mess_count)
 }
 
+  // function for deleting recipes
+    const deleteRecipe = () => {
+        fetch(`http://localhost:9292/recipes/${id}`)
+        .then(res => res.json())
+        .then(handleDeleteRecipe)
+    }
+
+    const notYours = () => {
+        alert(`This isn't your recipe, silly goose!`)
+    }
+
 return (
-    <Card onClick = {handleClick}>
-        <Image src= {image_URL} alt={title} wrapped ui={false}/>
+    <Card currentUser={currentUser}>
+        <Image src= {image_URL} alt={title} wrapped ui={false} onClick = {handleClick}/>
         <Card.Content>
         <Card.Header>{title}</Card.Header>
         <Card.Meta>
@@ -113,9 +124,34 @@ return (
                 {comment_count_total} comments
             </div>
         </Card.Content>
+        <Card.Content>
+            <Button
+                onClick={deleteRecipe}
+                // onClick={currentUser.id === recipe.user_id ? {deleteRecipe}:{notYours}}
+                // {(currentUser.id === recipe.user_id) ? (onClick={deleteRecipe}) : (onClick={notYours})
+                // }
+            >
+                to the compost
+                <br />
+                <br />
+                🗑️
+                </Button>
+        </Card.Content>
+        {/* <Card.Content>
+            <div>
+                {(currentUser.id === recipe.user_id) ? (<Button>
+                to the compost
+                <br />
+                <br />
+                🗑️
+                </Button> ) : (
+                    null
+                ) }
+            </div>
+        </Card.Content> */}
         <Modal open = {openSteps} onClose = {() => setOpenSteps(false)} >
             <Modal.Header> {title}   </Modal.Header>
-            <Modal.Content> 
+            <Modal.Content>
                 <h3>Ingredients </h3>
                 <h3><span>-  {ingredients} </span> <br></br></h3>
                 <div class="ui divider"></div>

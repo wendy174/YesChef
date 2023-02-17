@@ -26,7 +26,6 @@ function App() {
       .then(res => res.json())
       .then(setAllRecipes);
     }, []);
-    console.log(allRecipes)
 
     // fetch users from database and store users in state for iterating
     useEffect(() => {
@@ -41,8 +40,6 @@ function App() {
       .then((r) => r.json())
       .then((data) => setCurrentUser(data));
     }, [currentUser.id])
-
-    console.log(currentUser)
 
     // function for logging in users
     function login(loginData) {
@@ -64,8 +61,15 @@ function App() {
       }
     }
 
+    // helper function for adding new recipe
     function handleNewRecipe(newRecipe) {
       setAllRecipes([...allRecipes, newRecipe])
+  }
+
+  // helper function for deleting recipe
+  const handleDeleteRecipe = (deletedRecipe) => {
+    const deletedRecipeList = allRecipes.filter(recipe => recipe.id !== deletedRecipe.id)
+    setAllRecipes(deletedRecipeList)
   }
 
   return (
@@ -76,7 +80,7 @@ function App() {
       <Routes>
         <Route
           path="/recipes"
-          element={<Recipes currentUser={currentUser} allRecipes={allRecipes}/>}
+          element={<Recipes currentUser={currentUser} allRecipes={allRecipes} setAllRecipes={setAllRecipes} handleDeleteRecipe={handleDeleteRecipe}/>}
         />
         <Route
           path="/newrecipe"
@@ -88,7 +92,7 @@ function App() {
         />
         <Route
           path="/home"
-          element={<Home currentUser={currentUser} setLoggedIn={setLoggedIn}/>}
+          element={<Home currentUser={currentUser} setLoggedIn={setLoggedIn} />}
         />
         <Route
           path="/profile"

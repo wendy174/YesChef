@@ -86,10 +86,10 @@ function App() {
           path="/newrecipe"
           element={<NewRecipe currentUser={currentUser} handleNewRecipe={handleNewRecipe}/>}
         />
-        <Route
+        {/* <Route
           path="/mykisses"
           element={<Kisses currentUser={currentUser}/>}
-        />
+        /> */}
         <Route
           path="/home"
           element={<Home currentUser={currentUser} setLoggedIn={setLoggedIn} />}

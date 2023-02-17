@@ -74,7 +74,9 @@ function handleMessClick() {
 
   // function for deleting recipes
     const deleteRecipe = () => {
-        fetch(`http://localhost:9292/recipes/${id}`)
+        fetch(`http://localhost:9292/recipes/${id}`, {
+            method: "DELETE",
+        })
         .then(res => res.json())
         .then(handleDeleteRecipe)
     }

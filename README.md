@@ -1,9 +1,13 @@
 # YesChef
 ## About The Project
 
-Full stack application that enables users to browse, search and save recipes
+Full stack application that enables users to browse, search, and save recipes
 
-![YesChef](Screen Shot 2023-06-13 at 11.25.37 AM.png) 
+
+![YesChef](yeschefscreenshot.png) 
+
+### Loom video of YesChef
+* https://www.loom.com/share/ff887918a7c44384894fdfd4be11ee49
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

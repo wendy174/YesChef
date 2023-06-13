@@ -47,8 +47,6 @@ Cd into the frontend, install the dependencies, and run the frontend server.
 $ cd frontend 
 $ npm install 
 $ npm start
-$ rake db:seed
-$ bundle exec rake server
 ```
 
 ### Use this default login to see features of this application 

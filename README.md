@@ -1,7 +1,7 @@
 # YesChef
 ## About The Project
 
-Full stack application that enables users to browse, search, and save recipes
+Full stack application that enables users to browse, search, and add recipes
 
 
 ![YesChef](yeschefscreenshot.png) 

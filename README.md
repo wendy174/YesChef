@@ -55,6 +55,21 @@ $ npm start
 
 * Password: liza123
 
+
+### Potential Bugs: 
+
+* This potential bug may appear when trying to run the server: 
+"Unable to load the EventMachine C extension". 
+
+* To resolve this: 
+```console
+$ bundle config build.eventmachine --with-pkg-config=$(brew --prefix openssl@1.1)/lib/pkgconfig
+$ bundle install --redownload
+```
+
+
+
+
 ## Authors 
 
 * Wendy Yeung: https://github.com/wendy174

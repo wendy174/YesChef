@@ -4,11 +4,9 @@ import { Routes, Route } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import Login from './components/Login';
 import Home from './components/Home';
-import Kisses from './components/Kisses';
 import Recipes from './components/Recipes';
 import NewRecipe from './components/NewRecipe';
 import MyProfile from './components/MyProfile';
-import logo from "./components/logo.png";
 
 function App() {
     // state

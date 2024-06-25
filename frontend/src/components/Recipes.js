@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import RecipeCollection from './RecipeCollection';
 import Search from './Search';
 import Header from './Header'
-import { Dropdown , Container } from 'semantic-ui-react'
+import { Container } from 'semantic-ui-react'
 
 function Recipes ({allRecipes, currentUser, setAllRecipes, handleDeleteRecipe}) {
 

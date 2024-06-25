@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './Header';
 import HomeCollection from './HomeCollection';
 import { Container } from "semantic-ui-react"
-import RecipeCard from './RecipeCard';
-import NewRecipe from './NewRecipe';
+
 
 function Home ({setLoggedIn, currentUser}) {
     const [homeRecipes, setRecipes] = useState([]);

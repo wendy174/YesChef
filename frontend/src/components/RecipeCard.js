@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import { Card , Button , Icon , Label , Image , Container, Modal } from "semantic-ui-react";
+import React, {useState} from 'react';
+import { Card , Button , Icon , Label , Image , Modal } from "semantic-ui-react";
 
 function RecipeCard ({ recipe , currentUser, allcomment, setAllRecipes, handleDeleteRecipe }) {
 

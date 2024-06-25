@@ -1,0 +1,23 @@
+services:
+  backend: 
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    ports:
+      - "9292:9292"
+    volumes:
+      - ./backend:/backend
+      - sqlite-data:/backend/db
+  frontend:
+      build: 
+        context: frontend
+        dockerfile: Dockerfile
+      ports:
+        - "3000:3000"
+      volumes: 
+        - ./frontend:/frontend
+
+volumes:
+  sqlite-data:
+
+

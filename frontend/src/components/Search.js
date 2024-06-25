@@ -1,5 +1,5 @@
 import React from 'react';
-import { input , icon } from 'semantic-ui-react'
+
 
 // should we import NavBar?
 

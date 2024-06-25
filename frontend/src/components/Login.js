@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import toplogo from './logo.png';
 
 function Login ( { setCurrentUser, login } ) {

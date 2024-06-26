@@ -28,7 +28,23 @@ Clone the repo
    ```sh
    git clone https://github.com/github_username/repo_name.git
    ```
-### Back End Setup 
+
+## Docker 
+
+If you have Docker installed, you can run this application with a single command: 
+If you don't have docker, continue to backend and frontend setup. 
+
+```console
+$ docker compose up --build 
+```
+Run database migrations and seed data. You only need to do this once when setting up the application. 
+
+```console
+$  docker compose run backend rake db:create db:migrate db:seed
+```
+
+
+### Backend Setup 
 
 Cd into the backend, install the dependencies, migrate and seed your file, then start the server 
 
@@ -39,7 +55,7 @@ $ rake db:migrate
 $ rake db:seed
 $ bundle exec rake server
 ```
-### Front End Setup
+### Frontend Setup
 
 Cd into the frontend, install the dependencies, and run the frontend server. 
 
@@ -49,24 +65,11 @@ $ npm install
 $ npm start
 ```
 
-### Use this default login to see features of this application 
+### Use default login to see features of this application 
 
 * Email: liza123@liza.com
 
 * Password: liza123
-
-
-### Potential Bugs: 
-
-* This potential bug may appear when trying to run the server: 
-"Unable to load the EventMachine C extension". 
-
-* To resolve this: 
-```console
-$ bundle config build.eventmachine --with-pkg-config=$(brew --prefix openssl@1.1)/lib/pkgconfig
-$ bundle install --redownload
-```
-
 
 
 

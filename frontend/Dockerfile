@@ -1,20 +1,23 @@
+# Base node image 
 FROM node
 
-# sets working directory inside container to /backend 
-# all commands in the file will run from this directory
-WORKDIR /frontend 
+# Set working directory 
+WORKDIR /app
 
-COPY package.json . 
+# Copy package.json and package-lock.json
+COPY package*.json ./
 
-# install app dependencies
-COPY package.json ./frontend/package.json
-COPY package-lock.json ./frontend/package-lock.json
+# Install dependencies 
 RUN npm install
 
-# add app
+# Copy the rest of the application code to the working directory
 COPY . ./
+
+# Set environment variables
 ENV NODE_ENV development
+
+# Expose the port the app runs on
 EXPOSE 3000
 
-# start app
+# Define the command to run the app
 CMD ["npm", "start"] 

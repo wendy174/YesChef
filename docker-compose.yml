@@ -22,7 +22,12 @@ services:
       volumes: 
         - ./frontend:/frontend
       environment:
-        POSTGRES_PASSWORD: password
+        environment:
+          - NODE_ENV=development
+
+
+
+
 
 
 

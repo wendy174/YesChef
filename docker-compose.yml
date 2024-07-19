@@ -1,4 +1,10 @@
 services:
+  db: 
+    image: postgres 
+    volumes: 
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
   backend: 
     build:
       context: backend
@@ -7,7 +13,6 @@ services:
       - "9292:9292"
     volumes:
       - ./backend:/backend
-      - sqlite-data:/backend/db
   frontend:
       build: 
         context: frontend
@@ -16,8 +21,8 @@ services:
         - "3000:3000"
       volumes: 
         - ./frontend:/frontend
+      environment:
+        POSTGRES_PASSWORD: password
 
-volumes:
-  sqlite-data:
 
 

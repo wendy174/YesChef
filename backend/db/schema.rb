@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2023_02_15_165353) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.text "comment"
     t.integer "user_id"
@@ -29,23 +32,23 @@ ActiveRecord::Schema.define(version: 2023_02_15_165353) do
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.string "title"
-    t.string "image_URL"
-    t.string "ingredients"
-    t.string "steps"
-    t.string "cuisine"
+    t.text "title"
+    t.text "image_URL"
+    t.text "ingredients"
+    t.text "steps"
+    t.text "cuisine"
     t.integer "time"
-    t.string "difficulty"
+    t.text "difficulty"
     t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "user_name"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "password"
-    t.string "image_URL"
+    t.text "user_name"
+    t.text "first_name"
+    t.text "last_name"
+    t.text "email"
+    t.text "password"
+    t.text "image_URL"
   end
 
 end

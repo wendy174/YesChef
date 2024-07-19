@@ -1,10 +1,12 @@
 services:
+
   db: 
     image: postgres 
     volumes: 
       - ./tmp/db:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
+
   backend: 
     build:
       context: backend
@@ -13,6 +15,7 @@ services:
       - "9292:9292"
     volumes:
       - ./backend:/backend
+
   frontend:
       build: 
         context: frontend
@@ -22,8 +25,7 @@ services:
       volumes: 
         - ./frontend:/frontend
       environment:
-        environment:
-          - NODE_ENV=development
+         - NODE_ENV=development
 
 
 

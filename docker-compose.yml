@@ -5,6 +5,7 @@ services:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
+
   backend: 
     build:
       context: backend
@@ -13,6 +14,9 @@ services:
       - "9292:9292"
     volumes:
       - ./backend:/backend
+    environment:
+      - DB_HOST=db  # Add this line
+      - RACK_ENV=development
   frontend:
       build: 
         context: frontend
@@ -22,7 +26,6 @@ services:
       volumes: 
         - ./frontend:/frontend
       environment:
-        environment:
           - NODE_ENV=development
 
 

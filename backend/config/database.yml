@@ -4,7 +4,8 @@ default: &default
   username: postgres
   password: password 
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: <%= ENV['DB_HOST'] || 'localhost' %>
+  host: <%= ENV['DB_HOST'] || 'localhost' %> 
+  # host line tells the application to use the DB_HOST environment variable if it's set, and localhost otherwise.
 
 
 

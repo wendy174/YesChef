@@ -17,7 +17,7 @@ services:
     volumes:
       - ./backend:/backend
     environment:
-      - DB_HOST=db  # Add this line
+      - DB_HOST=db  # Setting the database host to the service name 'db'
       - RACK_ENV=development
       
   frontend:

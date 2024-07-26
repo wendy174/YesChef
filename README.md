@@ -40,7 +40,7 @@ $ docker compose up --build
 Run database migrations and seed data. You only need to do this once when setting up the application. 
 
 ```console
-$  docker compose run backend rake db:create db:migrate db:seed
+$  docker-compose run backend rake db:create db:migrate db:seed
 ```
 
 

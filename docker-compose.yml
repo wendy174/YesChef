@@ -1,4 +1,13 @@
 services:
+
+  db: 
+    image: postgres 
+    volumes: 
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+
+
   backend: 
     build:
       context: backend
@@ -7,7 +16,10 @@ services:
       - "9292:9292"
     volumes:
       - ./backend:/backend
-      - sqlite-data:/backend/db
+    environment:
+      - DB_HOST=db  # Setting the database host to the service name 'db'
+      - RACK_ENV=development
+      
   frontend:
       build: 
         context: frontend
@@ -16,8 +28,12 @@ services:
         - "3000:3000"
       volumes: 
         - ./frontend:/frontend
+      environment:
+          - NODE_ENV=development
 
-volumes:
-  sqlite-data:
+
+
+
+
 
 
